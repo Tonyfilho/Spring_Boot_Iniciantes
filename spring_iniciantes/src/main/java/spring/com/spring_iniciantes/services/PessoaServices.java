@@ -11,22 +11,27 @@ import spring.com.spring_iniciantes.repository.PessoaRepository;
 @Service
 public class PessoaServices {
 
- @Autowired
- PessoaRepository pessoaRepository;
+   @Autowired
+   PessoaRepository pessoaRepository;
 
+   public Pessoa savePessoa(Pessoa pessoa) {
+      // verificar se Já existe uma pessoa cadastrada com um CPF, buscaremos o CPF
+      // adcionado no momento do Post e faremos o filtro
+    List<Pessoa> pessoas = pessoaRepository.findByCpf(pessoa.getCpf());
+      if (pessoas.size() > 0) {
+         throw new RuntimeException("Este CPF já está cadastrado");
+      }
+      return this.pessoaRepository.save(pessoa);
 
- public Pessoa savePessoa(Pessoa pessoa){
-    
-  return  this.pessoaRepository.save(pessoa);
-    
- }
+   }
 
+   public List<Pessoa> getPessoa() {
 
- public List<Pessoa> getPessoa(){
+      return this.pessoaRepository.findAll();
+   }
 
-    return this.pessoaRepository.findAll();
- }
+   public List<Pessoa> GetCPF(String cpf) {
+      return pessoaRepository.findByCpf(cpf);
+   }
 
-
-    
 }// end class
