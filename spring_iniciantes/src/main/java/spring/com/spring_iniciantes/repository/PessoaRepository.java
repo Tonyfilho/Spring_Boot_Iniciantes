@@ -16,4 +16,18 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     List<Pessoa> findByCpf(String cpf);
 
+    Pessoa findByIdade(String idade);
+
+    Pessoa findByNome(String nome);
+
+    List<Pessoa> findByNomeLike(String nome); // Cria a Query que busca uma Letra ou um Nome que tem na Tabela
+
+    List<Pessoa> findByIdadeGreaterThan(int idade);// cria uma QUERY de pessoas com idade acima de:(IDADE)
+
+    List<Pessoa> findByIdadeGreaterThanEqual(int idade); // cria uma QUERY de pessoas com idade MAIOR/IQUAL a:(IDADE)
+
+    List<Pessoa> findByNomeContaining(String nome); // Cria um Query de pessoas de 1 " Item, Letra,etc "" que contem na
+                                                    // tabela nome
+                                                    
+
 }

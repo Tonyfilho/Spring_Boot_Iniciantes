@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
 import spring.com.spring_iniciantes.model.Pessoa;
 import spring.com.spring_iniciantes.repository.PessoaRepository;
 
 @Service
+@AllArgsConstructor
 public class PessoaServices {
 
-   @Autowired
+ //  @Autowired //OBS: SUBSTIRUIDO construtor do  LOMBOK
    PessoaRepository pessoaRepository;
 
    public Pessoa savePessoa(Pessoa pessoa) {

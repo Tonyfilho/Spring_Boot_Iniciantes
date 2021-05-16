@@ -2,28 +2,30 @@ package spring.com.spring_iniciantes.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
 import spring.com.spring_iniciantes.model.Pessoa;
 import spring.com.spring_iniciantes.services.PessoaServices;
 
+@AllArgsConstructor //Não preciso criar o construtor por causa da anotação do LOMBOK
 @RestController // Esta anotação: Usa o BODY e já recebe o JSON como Resposta, sem precisar
                 // converter nada
 public class PessoaController {
 
   // @Autowired Remove a Anotação @AUTOWIRED e cria um CONSTRUTOR , isto evita
-  // erros nullPoint e facilita os JunitTest
+  // erros nullPoint e facilita os JunitTest----Anotação @ALLARGSCONSTRUCTOR substitui o construtor
   PessoaServices pessoaServices;
 
-  public PessoaController(PessoaServices pessoaServices) {
-    this.pessoaServices = pessoaServices;
-  }
+  // public PessoaController(PessoaServices pessoaServices) {
+  //   this.pessoaServices = pessoaServices;
+  // }
 
   // A Anotação POSTMAPPING controla Tudo que vier para o ENDPOINT '/PESSOAS' e
   // que usar o POST, ou usar da outra forma
