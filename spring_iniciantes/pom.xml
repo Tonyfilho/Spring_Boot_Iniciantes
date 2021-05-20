@@ -54,6 +54,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<!-- Estas são as DEPENDENCIAS para teremos o SWAGGER -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>      
+
 	</dependencies>
 
 	<build>
@@ -62,6 +74,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+						 <!-- <layers>
+						      <enabled>true</enabled>
+						 </layers> -->
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -69,6 +84,7 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>
